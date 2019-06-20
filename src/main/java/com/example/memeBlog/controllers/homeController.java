@@ -13,7 +13,19 @@ public class homeController {
 
     @RequestMapping(value= "", method = RequestMethod.GET)
     public String index(Model model) {
-        model.addAttribute("title", "Homepage | memeBlog");
+        model.addAttribute("title", "memeBlog | Homepage");
         return "Home/index";
+    }
+
+    @RequestMapping(value="login", method = RequestMethod.GET)
+    public String login(Model model) {
+        model.addAttribute("title", "memeBlog | Login");
+        return "Login/login";
+    }
+
+    @RequestMapping(value="register", method = RequestMethod.GET)
+    public String register(Model model) {
+        model.addAttribute("title", "memeBlog | Register");
+        return "Login/register";
     }
 }
