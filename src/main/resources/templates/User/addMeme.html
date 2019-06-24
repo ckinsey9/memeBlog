@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+<nav th:replace="fragments :: userNavigation"></nav>
+
+<h1>This will be the User AddMeme page!</h1>
+
+<p th:text="'Hello, ' + ${username}"></p>
+
+</body>
+</html>
