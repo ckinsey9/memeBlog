@@ -5,19 +5,26 @@
 </head>
 <body>
 <nav th:replace="fragments :: navigation"></nav>
-
-<h1>MemeBlog</h1>
-
-<form class="col-sm-4">
+<br/>
+<h1 class="offset-sm-2">MemeBlog</h1>
+<hr/>
+<form class="col-sm-4 offset-sm-1" method="post" th:object="${user}">
     <div class="form-group">
-        <label for="username">Username</label>
-        <input type="email" class="form-control" id="username" aria-describedby="usernameHelp" placeholder="Enter username">
+        <label th:for="*{username}">Username</label>
+        <input type="text" class="form-control" th:field=="*{username}" id="username" aria-describedby="usernameHelp" placeholder="Username">
+        <span class="error" th:errors="*{username}"></span>
     </div>
     <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password">
+        <label th:for="*{password}">Password</label>
+        <input type="password" class="form-control" id="password" th:field="*{password}" placeholder="Password">
+        <span th:errors="*{password}" class="error"></span>
+        <span class="error" th:text="${usernameError}"></span>
+
     </div>
+
+    <div class="text-right">
     <button type="submit" class="btn btn-primary">Login</button>
+    </div>
 </form>
 
 </body>

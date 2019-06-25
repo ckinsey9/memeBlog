@@ -3,6 +3,7 @@ package com.example.memeBlog.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,16 +16,20 @@ public class User {
     @GeneratedValue
     private int id;
 
-    @NotNull
+    //@NotNull
+    @Size(min=1, max=30, message = "Please enter your first name")
     private String firstName;
 
-    @NotNull
+    //@NotNull
+    @Size(min=1, max=30, message = "Please enter your last name")
     private String lastName;
 
     @NotNull
+    @Size(min=7, max=30, message = "Username must be 7 to 30 characters")
     private String username;
 
     @NotNull
+    @Size(min=7, max=70, message = "Password must be 7 to 30 characters")
     private String password;
 
     private String role;
