@@ -18,6 +18,7 @@ public class Meme {
     private int id;
 
     @NotNull
+    @Size(min=3, max=30, message = "Between 3 and 30 characters")
     private String name;
 
     @Lob
