@@ -1,4 +1,5 @@
 package com.example.memeBlog.models;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Lob;
@@ -7,6 +8,7 @@ import javax.validation.constraints.Size;
 import java.util.ArrayList;
 
 
+@Entity
 public class Meme {
 
     @Id
