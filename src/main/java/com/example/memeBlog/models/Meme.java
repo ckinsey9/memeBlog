@@ -1,12 +1,10 @@
 package com.example.memeBlog.models;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Lob;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 
-
+@Entity
 public class Meme {
 
     @Id
@@ -20,13 +18,17 @@ public class Meme {
     @NotNull
     private byte[] pic;
 
-    private ArrayList<User> likers;
+    @ManyToMany
+    private ArrayList<User> favGang;
+
+    @ManyToOne
+    private User user;
 
     @Size(max = 50)
     private String owner_comment;
 
-    @Size(max = 50)
-    private ArrayList<String> guest_comments;
+    //@Size(max = 50)
+    //private ArrayList<String> guest_comments;
 
     public Meme() {}
 
@@ -49,16 +51,16 @@ public class Meme {
     }
 
     public ArrayList<User> getLikers() {
-        return likers;
+        return favGang;
     }
 
     public String getOwner_comment() {
         return owner_comment;
     }
 
-    public ArrayList<String> getGuest_comments() {
-        return guest_comments;
-    }
+    //public ArrayList<String> getGuest_comments() {
+    //    return guest_comments;
+    //}
 
     public void setName(String name) {
         this.name = name;
@@ -69,14 +71,14 @@ public class Meme {
     }
 
     public void setLikers(ArrayList<User> likers) {
-        this.likers = likers;
+        this.favGang = likers;
     }
 
     public void setOwner_comment(String owner_comment) {
         this.owner_comment = owner_comment;
     }
 
-    public void setGuest_comments(ArrayList<String> guest_comments) {
-        this.guest_comments = guest_comments;
-    }
+    //public void setGuest_comments(ArrayList<String> guest_comments) {
+    //    this.guest_comments = guest_comments;
+    //}
 }

@@ -22,14 +22,14 @@ public class MemeController {
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String addDisplay(Model model, @ModelAttribute Meme meme) {
         model.addAttribute("title", "Meme - add");
-        return "Meme/meme_add";
+        return "Meme/addMeme";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String addProcess(Model model, @ModelAttribute @Valid Meme meme, Errors errors) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Meme - add");
-            return "Meme/meme_add";
+            return "Meme/addMeme";
         }
         return "HOLDER";
     }
