@@ -122,8 +122,8 @@ public class homeController {
 
     }
 
-    @RequestMapping(value = "logout")
-    public String Logout() {
+    @RequestMapping(value = "logoutProcessor")
+    public String logoutProcessor() {
         userCookie = new Cookie("username", "");
         userCookie.setMaxAge(0);
         userCookie.setPath("/");
