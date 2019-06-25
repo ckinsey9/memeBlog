@@ -1,16 +1,17 @@
 package com.example.memeBlog.models;
 
-//import javax.persistence.*;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 
 
-//@Entity
+@Entity
 public class User {
 
 
-    //@Id
-    //@GeneratedValue
+    @Id
+    @GeneratedValue
     private int id;
 
     @NotNull
@@ -27,18 +28,19 @@ public class User {
 
     private String role;
 
-    //@OneToMany
-    //@JoinColumn(name = "user_id")
+    @ManyToMany(mappedBy = "favGang")
+    @JoinColumn(name = "user_id")
     private ArrayList<Meme> favs;
 
-    //@OneToMany
-    //@JoinColumn(name = "user_id")
+    @OneToMany
+    @JoinColumn(name = "user_id")
     private ArrayList<Meme> userMemes;
 
-    //@ManyToMany
+
+    @ManyToMany(mappedBy = "friends")
     private ArrayList<User> followers;
 
-    //@ManyToMany(mappedBy = "friends")
+    @ManyToMany
     private ArrayList<User> following;
 
     //Constructors
