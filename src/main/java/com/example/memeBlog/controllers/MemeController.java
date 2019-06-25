@@ -31,6 +31,7 @@ public class MemeController {
             model.addAttribute("title", "Meme - add");
             return "Meme/addMeme";
         }
+        memeDao.save(meme);
         return "HOLDER";
     }
 
