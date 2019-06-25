@@ -4,6 +4,7 @@ package com.example.memeBlog.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -29,19 +30,18 @@ public class User {
     private String role;
 
     @ManyToMany(mappedBy = "favGang")
-    @JoinColumn(name = "user_id")
-    private ArrayList<Meme> favs;
+    private List<Meme> favs = new ArrayList<>();
 
     @OneToMany
     @JoinColumn(name = "user_id")
-    private ArrayList<Meme> userMemes;
+    private List<Meme> userMemes = new ArrayList<>();
 
 
-    @ManyToMany(mappedBy = "friends")
-    private ArrayList<User> followers;
+    @ManyToMany(mappedBy = "following")
+    private List<User> followers = new ArrayList<>();
 
     @ManyToMany
-    private ArrayList<User> following;
+    private List<User> following = new ArrayList<>();
 
     //Constructors
 
@@ -105,7 +105,7 @@ public class User {
         this.role = role;
     }
 
-    public ArrayList<Meme> getFavs() {
+    public List<Meme> getFavs() {
         return favs;
     }
 
@@ -113,7 +113,7 @@ public class User {
         favs.add(meme);
     }
 
-    public ArrayList<Meme> getUserMemes() {
+    public List<Meme> getUserMemes() {
         return userMemes;
     }
 
@@ -121,7 +121,7 @@ public class User {
         userMemes.add(userMeme);
     }
 
-    public ArrayList<User> getFollowers() {
+    public List<User> getFollowers() {
         return followers;
     }
 
@@ -133,7 +133,7 @@ public class User {
         followers.remove(follower);
     }
 
-    public ArrayList<User> getFollowing() {
+    public List<User> getFollowing() {
         return following;
     }
 

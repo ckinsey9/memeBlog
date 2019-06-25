@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -24,7 +25,7 @@ public class Meme {
     private byte[] pic;
 
     @ManyToMany
-    private ArrayList<User> favGang;
+    private List<User> favGang = new ArrayList<>();
 
     @ManyToOne
     private User user;
@@ -55,7 +56,7 @@ public class Meme {
         return pic;
     }
 
-    public ArrayList<User> getLikers() {
+    public List<User> getLikers() {
         return favGang;
     }
 
@@ -75,9 +76,7 @@ public class Meme {
         this.pic = pic;
     }
 
-    public void setLikers(ArrayList<User> likers) {
-        this.favGang = likers;
-    }
+
 
     public void setOwner_comment(String owner_comment) {
         this.owner_comment = owner_comment;
