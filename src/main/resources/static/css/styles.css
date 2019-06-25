@@ -1,0 +1,8 @@
+form label {
+
+    font-weight:700;
+}
+
+.error {
+    color: red;
+}

@@ -5,7 +5,49 @@
 </head>
 <body>
 <nav th:replace="fragments :: navigation"></nav>
+<br/>
+<div class="offset-sm-2">
+    <h1>MemeBlog</h1>
+</div>
 
-<h1>This will be the register page.</h1>
+<hr/>
+<div class="offset-sm-2">
+    <p>Register using the form below.</p>
+</div>
+<form class="col-sm-4 offset-sm-1" method="post" th:object="${user}">
+    <div class="form-group">
+        <label th:for="*{username}">Username</label>
+        <input type="text" class="form-control" th:field=="*{username}" id="username" aria-describedby="usernameHelp" placeholder="Username">
+        <span class="error" th:errors="*{username}"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="*{password}">Password</label>
+        <input type="password" class="form-control" id="password" th:field="*{password}" placeholder="Password">
+        <span th:errors="*{password}" class="error"></span>
+
+    </div>
+
+
+    <div class="form-group">
+        <label for="verify">Verify</label>
+        <input type="password" class="form-control" id="verify" name="verify" placeholder="Re-Enter Password">
+    </div>
+
+    <div class="form-group">
+        <label th:for="*{firstName}">First Name</label>
+        <input type="text" class="form-control" id="firstName" th:field="*{firstName}" placeholder="Ex: Barack"/>
+        <span th:errors="*{firstName}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="*{lastName}">Last Name</label>
+        <input type="text" class="form-control" id="lastName" th:field="*{lastName}" placeholder="Ex. Obama"/>
+        <span th:errors="*{lastName}" class="error"></span>
+        <span th:text="${passwordError}" class="error" ></span>
+    </div>
+    <div class="text-right">
+        <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+</form>
 </body>
 </html>

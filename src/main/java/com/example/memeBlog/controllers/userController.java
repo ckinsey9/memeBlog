@@ -22,7 +22,7 @@ public class userController {
     @RequestMapping(value="/add/{username}", method = RequestMethod.GET)
     public String addMeme(@PathVariable String username, Model model) {
         model.addAttribute("username", username);
-        return "User/addMeme";
+        return "Meme/addMeme";
     }
 
     @RequestMapping(value="/friends/{username}", method = RequestMethod.GET)
