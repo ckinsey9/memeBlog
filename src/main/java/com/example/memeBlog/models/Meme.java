@@ -22,7 +22,6 @@ public class Meme {
     private String name;
 
     @Lob
-    @NotNull
     private byte[] pic;
 
     @ManyToMany
