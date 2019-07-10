@@ -52,6 +52,6 @@ public class MemeController {
         byte[] pic = file.getBytes();
         meme.setPic(pic);
         memeDao.save(meme);
-        return "redirect:";
+        return "redirect:" + meme.getId();
     }
 }
