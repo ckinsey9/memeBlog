@@ -8,17 +8,19 @@
 
         <p th:text="'Hello, ' + ${username}"></p>
 
-        <form method="post" th:object="${meme}">
+        <form method="post" enctype="multipart/form-data">
 
             <label for="name">Name: </label>
-            <input id="name" th:field="*{name}"/>
-            <div th:errors="*{name}"></div>
+            <input id="name" th:field="${meme.name}"/>
+            <div th:errors="${meme.name}"></div>
 
             <label for="owner_comment">Caption: </label>
-            <input id="owner_comment" th:field="*{owner_comment}" />
+            <input id="owner_comment" th:field="${meme.owner_comment}" />
+            <div th:errors="${meme.owner_comment}"></div>
 
             <label for="pic">Upload Image: </label>
-            <input id="pic" type="file" th:field="*{pic}" />
+            <input id="pic" type="file" name="file" />
+            <div th:errors="${meme.pic}"></div>
 
             <input type="submit" />
 

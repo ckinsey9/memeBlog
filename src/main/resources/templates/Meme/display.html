@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+    <head th:replace="fragments :: head"></head>
+    <body>
+
+        <nav th:replace="fragments :: userNavigation"></nav>
+
+        <h1>This will be the meme display page!</h1>
+
+        <div th:text="${meme.name}"></div>
+        <img th:src="@{'data:image/jpg;base64, ' + ${pic}}" />
+        <div th:text="${meme.owner_comment}"></div>
+
+    </body>
+</html>
